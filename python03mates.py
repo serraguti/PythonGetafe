@@ -14,3 +14,7 @@ print("División ", division)
 
 redondeo = int(division)
 print("Redondeo division: ", redondeo)
+
+
+
+
