@@ -15,17 +15,21 @@ def mostrarMenu():
     print("3.- Multiplicar")
     print("Seleccione una opción")
 
+def getNumeroComprobado():
+    print("Introduzca numero")
+    # ALMACENAR LO QUE HA ESCRITO EL USUARIO
+    # EN UNA VARIABLE STRING
+    aux = input()
+    while (aux.isdigit() == False):
+        print("Esto no es un numero")
+        print("Introduzca numero")
+        aux = input()           
+    num = int(aux)
+    return num
 #--------------------------------
 print("Calculadora metodos")
-print("Introduzca numero 1")
-# ALMACENAR LO QUE HA ESCRITO EL USUARIO
-# EN UNA VARIABLE STRING
-aux = input()
-while (aux.isdigit() == False):
-    print("Esto no es un numero")
-    print("Introduzca numero 1")
-    aux = input()
-numero1 = int(aux)
+numero1 = getNumeroComprobado()
+numero2 = getNumeroComprobado()
 print("Aqui tenemos numeros")
 #numero1 = int(input())
 # print("Introduzca numero 2")
