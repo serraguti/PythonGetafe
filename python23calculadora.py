@@ -13,6 +13,7 @@ def mostrarMenu():
     print("1.- Sumar")
     print("2.- Restar")
     print("3.- Multiplicar")
+    print("4.- Introducir numeros de nuevo")
     print("Seleccione una opción")
 
 def getNumeroComprobado():
@@ -30,26 +31,28 @@ def getNumeroComprobado():
 print("Calculadora metodos")
 numero1 = getNumeroComprobado()
 numero2 = getNumeroComprobado()
-print("Aqui tenemos numeros")
-#numero1 = int(input())
-# print("Introduzca numero 2")
-# numero2 = int(input())
-# # ASIGNAMOS UN VALOR A OPCION PARA ENTRAR EN EL BUCLE
-# opcion = 1
-# # CREAMOS UN WHILE HASTA QUE EL USUARIO ESCRIBA 0
-# while (opcion != 0):
-#     mostrarMenu()
-#     opcion = int(input())
-#     operacion = 0
-#     if (opcion == 1):
-#         operacion = sumarNumeros(numero1, numero2)
-#     elif (opcion == 2):
-#         operacion = restarNumeros(numero1, numero2)
-#     elif (opcion == 3):
-#         operacion = multiplicarNumeros(numero1, numero2)
-#     else:
-#         print("No ha seleccionado una opción correcta")
-#     print("Operación " + str(operacion))
+# ASIGNAMOS UN VALOR A OPCION PARA ENTRAR EN EL BUCLE
+opcion = 1
+# CREAMOS UN WHILE HASTA QUE EL USUARIO ESCRIBA 0
+while (opcion != 0):
+    mostrarMenu()
+    opcion = int(input())
+    operacion = 0
+    if (opcion == 1):
+        operacion = sumarNumeros(numero1, numero2)
+    elif (opcion == 2):
+        operacion = restarNumeros(numero1, numero2)
+    elif (opcion == 3):
+        operacion = multiplicarNumeros(numero1, numero2)
+    elif (opcion == 4):
+        # DEBEMOS PEDIR NUMEROS
+        numero1 = getNumeroComprobado()
+        numero2 = getNumeroComprobado()
+    elif (opcion == 0):
+        print("Hasta luego")
+    else:
+        print("No ha seleccionado una opción correcta")
+    print("Operación " + str(operacion))
 print("Fin de programa")
 
 
