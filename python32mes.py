@@ -1,17 +1,14 @@
 from class32mes import Mes
+import random
 
 print("Trabajando con clase Mes")
-enero = Mes()
-enero.nombre = "Enero"
-enero.temperaturaMaxima = 9
-enero.temperaturaMinima = -4
-media = enero.getTemperaturaMedia()
-print("Enero ", media)
-print(enero)
-febrero = Mes()
-febrero.nombre = "Febrero"
-febrero.temperaturaMaxima = 18
-febrero.temperaturaMinima = 4
-media = febrero.getTemperaturaMedia()
-print("febrero ", media)
-print(febrero)
+meses = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+for nombreMes in meses:
+    mes = Mes()
+    mes.nombre = nombreMes
+    mes.temperaturaMaxima = random.randint(1, 40)
+    mes.temperaturaMinima = random.randint(1, 40)
+    media = mes.getTemperaturaMedia()
+    print(media)
+    print(mes)
+print("Fin de programa")
