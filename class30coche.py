@@ -4,6 +4,10 @@ class Coche:
     velocidad = 0
     estado = False
 
+    def getVelocidadMaxima(self):
+        print("Velocidad máxima Coche: 140 km/h")
+        return 140
+
     def acelerar(self):
         if (self.estado == False):
             print("El coche no está arrancado.  Debe arrancar antes")

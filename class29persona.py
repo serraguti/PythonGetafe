@@ -4,6 +4,7 @@ class Persona:
     email = ""
     anyonacimiento = 0
     pais = ""
+    __id = 234
 
     def __init__(self):
         self.pais = "Francia"
