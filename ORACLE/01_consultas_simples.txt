@@ -1,0 +1,111 @@
+-- COMENTARIOS
+/*
+    varias lineas
+    PODEMOS TENER TODAS LAS CONSULTAS QUE DESEEMOS
+    NO ES NECESARIO BORRARLAS
+    EN EL EDITOR, INDICAREMOS QUE CONSULTA (LINEA O SELECCION)
+    QUEREMOS EJECUTAR
+    PARA EJECUTAR CONTROL + ENTER (MAC)
+    NO DIFERENCIA MAYUSCULAS DE MINUSCULAS EN LAS CONSULTAS
+    LAS CONSULTAS FINALIZAN CON ;
+*/
+select * from DEPT;
+select DEPT_NO, DNOMBRE, LOC from DEPT;
+--ORDENAR REGISTROS order by COLUMNA
+select * from EMP order by APELLIDO desc;
+--FILTRADO DE REGISTROS
+--PARA FILTRAR UTILIZAMOS UNA PALABRA LLAMADA where
+/*
+OPERADORES DE COMPARACION
+> MAYOR
+>= MAYOR O IGUAL
+< MENOR
+<= MENOR O IGUAL
+=  IGUAL
+<> DISTINTO
+TODO LO QUE NO SEA UN NUMERO SE ESCRIBE ENTRE COMILLAS SIMPLES
+PARA LA COMPARACION
+ORACLE DIFERENCIA MAYUSCULAS DE MINUSCULAS EN LOS STRING
+*/
+select * from EMP where DEPT_NO=10;
+--Mostrar todos los empleados cuyo oficio sea DIRECTOR
+select * from EMP where OFICIO='DIRECTOR';
+select * from EMP where OFICIO='director';
+/*
+OPERADORES RELACIONALES
+PERMITEN PREGUNTAR POR MAS DE UN FILTRO EN UNA MISMA CONSULTA
+and TODAS LAS CONDICIONES DEBEN CUMPLIRSE
+or MUESTRA DATOS DE CADA CONDICION
+not PROHIBIDO, NO LO DEBEMOS UTILIZAR.  NIEGA UNA CONDICION
+*/
+--Mostrar todos los empleados del departamento 10 y del departamento 20
+select * from EMP where DEPT_NO=10 or DEPT_NO=20;
+--Mostrar todos los empleados cuyo EMP_NO este entre 7800 y 7900
+select * from EMP where EMP_NO >= 7800 and EMP_NO <= 7900;
+--Mostrar todos los empleados que NO sean vendedores
+select * from EMP where not OFICIO='VENDEDOR';
+select * from EMP where OFICIO <> 'VENDEDOR';
+
+--EXISTEN OTROS TIPOS DE OPERADORES PARA FILTRAR
+--OPERADOR BETWEEN: BUSCA ENTRE UN RANGO Y DEVUELVE LOS VALORES
+--INCLUSIVE DEL RANGO
+--Mostrar los empleados cuyo salario esté entre 318000 y 390000
+select * from EMP where SALARIO between 318000 and 390000;
+select * from EMP where SALARIO >= 318000 and SALARIO <= 390000; 
+--OPERADOR IN
+--BUSCA EN UN MISMO CAMPO MULTIPLES VALORES DE IGUALDAD
+--Mostrar todos los empleados del departamento 10 y 20, 30, 55,66,88
+-- CAMPO IN (VALOR1, VALOR2, VALOR3)
+select * from EMP where DEPT_NO=10 or DEPT_NO=20 or DEPT_NO=30
+or DEPT_NO=55 or DEPT_NO=66 or DEPT_NO=88;
+select * from EMP where DEPT_NO in (10,20,30,55,66,88);
+--OPERADOR NOT IN
+--Muestra los contrarios al operador IN
+--Mostrar todos los empleados que no estén en el departamento 10 ni en el 20
+select * from EMP where DEPT_NO NOT in (10, 20);
+--OPERADOR LIKE
+--SE UTILIZA PARA BUSCAR COINCIDENCIAS EN TEXTOS (STRING, VARCHAR)
+--BUSCADORES
+--UTILIZA UNA SERIE DE CARACTERES ESPECIALES (SOLO SIRVE UNO)
+-- ? Busca un digito en el texto
+-- _ Representa un caracter cualquiera
+-- % Busca cualquier caracter y cualquier longitud
+--Mostrar todos los empleados cuyo apellido comience con S
+select * from EMP where apellido like 's%';
+--Mostrar todos los empleados cuyo apellido comience con S y finalicen con A
+select * from EMP where apellido like 's%a';
+--Mostrar todos los empleados cuyo apellido sea de 4 letras
+select * from EMP where apellido like '____';
+--CLAUSULA DISTINCT
+--Nos permite quitar repetidos de una consulta SELECT
+--En realidad, se utiliza con pocos campos.
+--Mostrar los oficios de los empleados
+select distinct OFICIO from EMP;
+--CAMPOS CALCULADOS
+--Un campo calculado es una columna que NO existe en una tabla
+--pero se genera a partir de otra columna/s
+--OPERADORES MATEMATICOS: +, *, /, -
+--TODO CAMPO CALCULADO DEBE TENER UN ALIAS SIEMPRE
+--LOS ALIAS SIN ESPACIOS
+--Mostrar el apellido y el salario Total (salario + comision) de todos los empleados.
+select APELLIDO, (SALARIO + COMISION) as TOTAL from EMP;
+--LOS CAMPOS CALCULADOS NO SE PUEDEN FILTRAR CON where
+--UN where SOLAMENTE SE UTILIZA PARA FILTRAR DATOS DE LA TABLA
+--SI DESEAMOS FILTRAR SOBRE UN CAMPO CALCULADO, DEBEMOS HACERLO 
+--CON EL MISMO CALCULO
+select APELLIDO, (SALARIO + COMISION) as TOTAL from EMP
+where (SALARIO + COMISION) >= 210000;
+--UN order by SE EJECUTA SOBRE EL CURSOR
+select APELLIDO, (SALARIO + COMISION) as TOTAL from EMP order by TOTAL asc;
+
+
+
+
+
+
+
+
+
+
+
+
