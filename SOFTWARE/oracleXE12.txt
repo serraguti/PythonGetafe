@@ -1,1 +1,5 @@
+Para instalar, debemos quitar cualquier otro Oracle XE que tengamos en el equipo.
+En la instalación, nos dará dos mini errores, pulsamos sobre ellas y a seguir.
+
+
 https://www.dropbox.com/scl/fi/bbs2ojcmt4cnamwbe39kp/OracleXE112_Win32-1.zip?rlkey=ggp355cbmzuvz4iaeontnssu1&st=jl2pa653&dl=0
