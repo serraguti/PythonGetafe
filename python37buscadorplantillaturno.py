@@ -3,7 +3,7 @@ import oracledb
 print("Buscador plantilla por turno")
 print("Introduzca un Turno (T, M, N)")
 data = input()
-sql = "select APELLIDO, FUNCION from PLANTILLA where TURNO='" + data + "'"
+sql = "select APELLIDO, FUNCION from PLANTILLA where hospital_cod=" + data 
 print(sql)
 connection = oracledb.connect(user='SYSTEM', password='oracle', dsn='localhost/xe')
 cursor = connection.cursor()
