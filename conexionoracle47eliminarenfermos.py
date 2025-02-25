@@ -14,3 +14,11 @@ class ConexionOracleEnfermos:
         registros = cursor.rowcount
         cursor.close()
         return registros
+    
+    def modificarEnfermo(self, apellido, inscripcion):
+        sql = "update ENFERMO set APELLIDO=:p1 where INSCRIPCION=:p2"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (apellido, inscripcion))
+        registros = cursor.rowcount
+        cursor.close()
+        return registros
